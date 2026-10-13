@@ -24,6 +24,71 @@ function showLoadError(section, error) {
   console.error(`Unable to load ${section.dataset.contentPage}:`, error);
 }
 
+function initializeRsvp(section) {
+  const form = section.querySelector('#rsvpForm');
+  if (!form) return;
+
+  const rsvpUrl = 'https://script.google.com/macros/s/AKfycbyHJfKbNyNmb_sVnho5RLIcq5fc1h7maSLXuMo4fDw2YRg2Hyb2xhi5vfUwAeSC9o-x3Q/exec';
+  const message = section.querySelector('#rsvpMessage');
+  const submitButton = section.querySelector('#rsvpSubmit');
+  const attendanceOptions = section.querySelector('#attendanceOptions');
+  let invitationFound = false;
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(form);
+
+    if (!invitationFound) {
+      message.textContent = 'Checking your invitation...';
+      message.classList.remove('hidden');
+      submitButton.disabled = true;
+
+      const callbackName = `rsvpSearch${Date.now()}`;
+      const searchScript = document.createElement('script');
+      const searchParams = new URLSearchParams({
+        firstName: formData.get('firstName'),
+        lastName: formData.get('lastName'),
+        callback: callbackName,
+      });
+
+      window[callbackName] = (result) => {
+        delete window[callbackName];
+        searchScript.remove();
+        submitButton.disabled = false;
+
+        if (!result.found) {
+          message.textContent = 'Name not found. Please check the spelling and try again.';
+          return;
+        }
+
+        invitationFound = true;
+        attendanceOptions.classList.remove('hidden');
+        attendanceOptions.querySelectorAll('input').forEach((input) => {
+          input.required = true;
+        });
+        message.textContent = 'Invitation found. Please choose your attendance.';
+        submitButton.textContent = 'Submit RSVP';
+      };
+
+      searchScript.src = `${rsvpUrl}?${searchParams.toString()}`;
+      document.body.appendChild(searchScript);
+      return;
+    }
+
+    submitButton.disabled = true;
+    submitButton.textContent = 'RSVP Submitted';
+    fetch(rsvpUrl, {
+      method: 'POST',
+      mode: 'no-cors',
+      body: new URLSearchParams(formData),
+    });
+    message.textContent = 'Thank you! Your RSVP has been submitted.';
+    message.classList.remove('hidden');
+    form.reset();
+  });
+}
+
 async function loadHomepageSections() {
   await Promise.all([...contentSections].map(async (section) => {
     try {
@@ -32,6 +97,9 @@ async function loadHomepageSections() {
       showLoadError(section, error);
     }
   }));
+
+  const rsvpSection = [...contentSections].find((section) => section.dataset.contentPage === 'rsvp.html');
+  if (rsvpSection) initializeRsvp(rsvpSection);
 
   const countdown = ['d', 'h', 'm', 's'].map((id) => document.getElementById(id));
   if (countdown.every(Boolean)) {
