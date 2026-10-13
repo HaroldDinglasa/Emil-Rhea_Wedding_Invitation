@@ -36,12 +36,12 @@
           <input id="lastName" name="lastName" required placeholder="e.g. Santos" class="mt-1 w-full rounded-md border border-line bg-white px-3 py-3 text-base text-ink outline-none focus:border-gold" autocomplete="family-name">
           <label class="mt-4 block text-sm text-soft" for="suffix">Suffix <span>(optional)</span></label>
           <select id="suffix" name="suffix" class="mt-1 w-full rounded-md border border-line bg-white px-3 py-3 text-base text-ink outline-none focus:border-gold"><option>None</option><option>Jr.</option><option>Sr.</option><option>II</option><option>III</option></select>
-          <fieldset class="mt-5 text-sm text-soft">
+          <fieldset id="attendanceOptions" class="mt-5 hidden text-sm text-soft">
             <legend>Will you attend?</legend>
-            <label class="mt-2 block"><input type="radio" name="attendance" value="Attending" required> Yes, I will attend</label>
+            <label class="mt-2 block"><input type="radio" name="attendance" value="Attending"> Yes, I will attend</label>
             <label class="mt-2 block"><input type="radio" name="attendance" value="Unable to attend"> No, I cannot attend</label>
           </fieldset>
-          <button id="rsvpSubmit" type="submit" class="mt-5 w-full rounded-md bg-ink px-4 py-3 text-base font-semibold text-bg shadow-sm transition hover:opacity-90">Submit RSVP</button>
+          <button id="rsvpSubmit" type="submit" class="mt-5 w-full rounded-md bg-ink px-4 py-3 text-base font-semibold text-bg shadow-sm transition hover:opacity-90">Find My Invitation</button>
           <p id="rsvpMessage" class="hidden mt-4 text-center text-sm text-gold" role="status"></p>
         </form>
       </div>
@@ -51,13 +51,53 @@
   <script>
     const RSVP_URL = "https://script.google.com/macros/s/AKfycbyHJfKbNyNmb_sVnho5RLIcq5fc1h7maSLXuMo4fDw2YRg2Hyb2xhi5vfUwAeSC9o-x3Q/exec";
 
+    let invitationFound = false;
+
     document.getElementById("rsvpForm").addEventListener("submit", function (event) {
       event.preventDefault();
 
       const form = event.target;
       const message = document.getElementById("rsvpMessage");
       const submitButton = document.getElementById("rsvpSubmit");
+      const attendanceOptions = document.getElementById("attendanceOptions");
       const formData = new FormData(form);
+
+      if (!invitationFound) {
+        message.textContent = "Checking your invitation...";
+        message.classList.remove("hidden");
+        submitButton.disabled = true;
+
+        const callbackName = "rsvpSearch" + Date.now();
+        const searchScript = document.createElement("script");
+        const searchParams = new URLSearchParams({
+          firstName: formData.get("firstName"),
+          lastName: formData.get("lastName"),
+          callback: callbackName
+        });
+
+        window[callbackName] = function (result) {
+          delete window[callbackName];
+          searchScript.remove();
+          submitButton.disabled = false;
+
+          if (!result.found) {
+            message.textContent = "Name not found. Please check the spelling and try again.";
+            return;
+          }
+
+          invitationFound = true;
+          attendanceOptions.classList.remove("hidden");
+          attendanceOptions.querySelectorAll("input").forEach(function (input) {
+            input.required = true;
+          });
+          message.textContent = "Invitation found. Please choose your attendance.";
+          submitButton.textContent = "Submit RSVP";
+        };
+
+        searchScript.src = RSVP_URL + "?" + searchParams.toString();
+        document.body.appendChild(searchScript);
+        return;
+      }
 
       submitButton.disabled = true;
       submitButton.textContent = "RSVP Submitted";
