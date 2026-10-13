@@ -27,7 +27,7 @@
         <div class="mt-5 rounded-md bg-sage2 p-1 text-center text-sm">
           <span class="block rounded bg-bg px-3 py-2 font-medium shadow-sm">◉ RSVP</span>
         </div>
-        <form id="rsvpForm" class="mt-5 text-left" onsubmit="event.preventDefault();document.getElementById('rsvpMessage').textContent='Thank you! We will look for your invitation.';document.getElementById('rsvpMessage').classList.remove('hidden')">
+        <form id="rsvpForm" class="mt-5 text-left">
           <h1 class="text-2xl font-medium text-ink">Find your invitation</h1>
           <p class="mt-1 text-sm text-soft">Enter your name exactly as it appears on your invitation</p>
           <label class="mt-5 block text-sm text-soft" for="firstName">First Name</label>
@@ -36,12 +36,42 @@
           <input id="lastName" name="lastName" required placeholder="e.g. Santos" class="mt-1 w-full rounded-md border border-line bg-white px-3 py-3 text-base text-ink outline-none focus:border-gold" autocomplete="family-name">
           <label class="mt-4 block text-sm text-soft" for="suffix">Suffix <span>(optional)</span></label>
           <select id="suffix" name="suffix" class="mt-1 w-full rounded-md border border-line bg-white px-3 py-3 text-base text-ink outline-none focus:border-gold"><option>None</option><option>Jr.</option><option>Sr.</option><option>II</option><option>III</option></select>
-          <button type="submit" class="mt-5 w-full rounded-md bg-ink px-4 py-3 text-base font-semibold text-bg shadow-sm transition hover:opacity-90">⌕&nbsp; Find My Invitation</button>
+          <fieldset class="mt-5 text-sm text-soft">
+            <legend>Will you attend?</legend>
+            <label class="mt-2 block"><input type="radio" name="attendance" value="Attending" required> Yes, I will attend</label>
+            <label class="mt-2 block"><input type="radio" name="attendance" value="Unable to attend"> No, I cannot attend</label>
+          </fieldset>
+          <button id="rsvpSubmit" type="submit" class="mt-5 w-full rounded-md bg-ink px-4 py-3 text-base font-semibold text-bg shadow-sm transition hover:opacity-90">Submit RSVP</button>
           <p id="rsvpMessage" class="hidden mt-4 text-center text-sm text-gold" role="status"></p>
         </form>
       </div>
     </section>
   </main>
   <script src="hamburger.js"></script>
+  <script>
+    const RSVP_URL = "https://script.google.com/macros/s/AKfycbyHJfKbNyNmb_sVnho5RLIcq5fc1h7maSLXuMo4fDw2YRg2Hyb2xhi5vfUwAeSC9o-x3Q/exec";
+
+    document.getElementById("rsvpForm").addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const form = event.target;
+      const message = document.getElementById("rsvpMessage");
+      const submitButton = document.getElementById("rsvpSubmit");
+      const formData = new FormData(form);
+
+      submitButton.disabled = true;
+      submitButton.textContent = "RSVP Submitted";
+
+      fetch(RSVP_URL, {
+        method: "POST",
+        mode: "no-cors",
+        body: new URLSearchParams(formData)
+      });
+
+      message.textContent = "Thank you! Your RSVP has been submitted.";
+      message.classList.remove("hidden");
+      form.reset();
+    });
+  </script>
 </body>
 </html>
