@@ -80,6 +80,11 @@
           searchScript.remove();
           submitButton.disabled = false;
 
+          if (result.alreadyResponded) {
+            message.textContent = "This guest has already submitted an RSVP.";
+            return;
+          }
+
           if (!result.found) {
             message.textContent = "Name not found. Please check the spelling and try again.";
             return;
@@ -111,6 +116,13 @@
       message.textContent = "Thank you! Your RSVP has been submitted.";
       message.classList.remove("hidden");
       form.reset();
+      invitationFound = false;
+      attendanceOptions.classList.add("hidden");
+      attendanceOptions.querySelectorAll("input").forEach(function (input) {
+        input.required = false;
+      });
+      submitButton.disabled = false;
+      submitButton.textContent = "Find My Invitation";
     });
   </script>
 </body>

@@ -57,6 +57,11 @@ function initializeRsvp(section) {
         searchScript.remove();
         submitButton.disabled = false;
 
+        if (result.alreadyResponded) {
+          message.textContent = 'This guest has already submitted an RSVP.';
+          return;
+        }
+
         if (!result.found) {
           message.textContent = 'Name not found. Please check the spelling and try again.';
           return;
@@ -86,6 +91,13 @@ function initializeRsvp(section) {
     message.textContent = 'Thank you! Your RSVP has been submitted.';
     message.classList.remove('hidden');
     form.reset();
+    invitationFound = false;
+    attendanceOptions.classList.add('hidden');
+    attendanceOptions.querySelectorAll('input').forEach((input) => {
+      input.required = false;
+    });
+    submitButton.disabled = false;
+    submitButton.textContent = 'Find My Invitation';
   });
 }
 
