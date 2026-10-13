@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Entourage · Emil &amp; Rhea</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script>tailwind.config={theme:{extend:{colors:{bg:'var(--bg)',ink:'var(--ink)',soft:'var(--soft)',sage2:'var(--sage2)',gold:'var(--gold)',line:'var(--line)'},fontFamily:{serif:['Georgia','serif']}}}}</script>
+  <style>:root{--bg:#e8efe0;--ink:#3f5139;--soft:#687862;--sage2:#d4e0ce;--gold:#9b7838;--line:rgba(63,81,57,.24)}body{background:var(--bg)}.person-list{columns:1}@media(min-width:640px){.person-list{columns:2}}</style>
+</head>
+<body class="min-h-screen bg-bg text-ink font-serif text-xl leading-relaxed">
+  <header class="fixed top-0 inset-x-0 z-10 flex items-center justify-between px-6 py-5 bg-bg/90">
+    <a href="index.html" class="text-gold text-3xl">E &amp; R</a>
+    <button id="menuToggle" type="button" aria-expanded="false" aria-controls="siteMenu" class="text-sm uppercase tracking-[.2em]">Menu</button>
+    <nav id="siteMenu" class="absolute right-6 top-20 hidden w-56 border border-line bg-bg p-5 shadow-lg">
+      <a class="menu-link block py-2" href="story.html">Our love story</a><a class="menu-link block py-2" href="gallery.html">Gallery</a><a class="menu-link block py-2" href="schedule.html">Schedule</a><a class="menu-link block py-2" href="entourage.html">Entourage</a><a class="menu-link block py-2" href="reminders.html">Reminders</a><a class="menu-link block py-2" href="rsvp.html">RSVP</a>
+    </nav>
+  </header>
+  <main class="px-6 py-32 text-center">
+    <p class="uppercase tracking-[.3em] text-sm text-gold">Entourage</p>
+    <h1 class="mt-4 text-5xl font-light">Our favorite people</h1>
+    <p class="mx-auto mt-6 max-w-2xl text-soft">Our family and friends will stand beside us as we begin this next chapter.</p>
+
+    <div class="mx-auto mt-12 grid max-w-5xl gap-8 text-left md:grid-cols-2"><section class="rounded-lg border border-line bg-bg/80 p-6 shadow-sm"><h2 class="text-center text-3xl font-light text-gold">Bride's Parents</h2><p class="mt-5 text-center text-soft">Eugenio T. Paglalunan<br>Marivic Q. Paglalunan</p></section><section class="rounded-lg border border-line bg-bg/80 p-6 shadow-sm"><h2 class="text-center text-3xl font-light text-gold">Groom's Parents</h2><p class="mt-5 text-center text-soft">Romeo D. Patrimonio<br>Imelda T. Patrimonio</p></section></div>
+
+    <div class="mx-auto mt-8 grid max-w-3xl gap-6 text-left sm:grid-cols-2"><section class="rounded-lg border border-gold bg-bg/90 p-5 text-center shadow-sm"><p class="text-sm uppercase tracking-[.18em] text-gold">Matron of Honor</p><p class="mt-2 text-2xl text-ink">Euvi Jane P. Silva</p></section><section class="rounded-lg border border-gold bg-bg/90 p-5 text-center shadow-sm"><p class="text-sm uppercase tracking-[.18em] text-gold">Best Man</p><p class="mt-2 text-2xl text-ink">Jayson N. Mahilum</p></section></div>
+
+    <div class="mx-auto mt-12 grid max-w-5xl gap-8 text-left md:grid-cols-2">
+      <section class="rounded-lg border border-line bg-bg/80 p-6 shadow-sm"><h2 class="text-center text-3xl font-light text-gold">Bridesmaids</h2><ol class="person-list mt-5 list-decimal space-y-2 pl-6 text-soft"><li>GLENEX I. PALADAR</li><li>Juvylou O. Lorico</li><li>Sharmaine Rose B. Paglalunan</li><li>Gesill Jean D. Ponce</li><li>Riza Enumerabellon</li><li>Ana Q. Paglalunan</li><li>Perlita A. Cornelia</li><li>Princess Jamaica Tan</li></ol></section>
+      <section class="rounded-lg border border-line bg-bg/80 p-6 shadow-sm"><h2 class="text-center text-3xl font-light text-gold">Groomsmen</h2><ol class="person-list mt-5 list-decimal space-y-2 pl-6 text-soft"><li>Ace Catada</li><li>Jumar Dequito</li><li>Prince Euan Q. Paglalunan</li><li>James Mahilum</li><li>Mc Clyde T. Patrimonio</li><li>Arnel Gabas</li><li>Regine Callora</li><li>Neilkim Banaybanay</li></ol></section>
+    </div>
+
+    <section class="mx-auto mt-8 max-w-5xl rounded-lg border border-line bg-bg/80 p-6 text-left shadow-sm"><h2 class="text-center text-3xl font-light text-gold">Principal Sponsors</h2><div class="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-4"><div class="border-l border-gold pl-4 text-soft"><p>Rowella R. Mariño</p><p>Nestor S. Mariño</p></div><div class="border-l border-gold pl-4 text-soft"><p>Abdel D. Abiera</p><p>Ivy Fe V. Abiera</p></div><div class="border-l border-gold pl-4 text-soft"><p>Aljer R. Terio</p><p>Leslie A. Terio</p></div><div class="border-l border-gold pl-4 text-soft"><p>Serbando Tuason</p><p>Wevina Tuason</p></div></div></section>
+
+    <section class="mx-auto mt-8 max-w-5xl rounded-lg border border-line bg-bg/80 p-6 text-left shadow-sm"><h2 class="text-center text-3xl font-light text-gold">Secondary Sponsors</h2><div class="mt-6 grid gap-5 sm:grid-cols-3"><div class="border-l border-gold pl-4 text-soft"><p>Rustico Noblefranca</p><p>Nancy Noblefranca <span class="text-sm text-gold">- Cord</span></p></div><div class="border-l border-gold pl-4 text-soft"><p>Kenneth Moso</p><p>Mary Grace Moso <span class="text-sm text-gold">- Veil</span></p></div><div class="border-l border-gold pl-4 text-soft"><p>Joren B. Cabildo</p><p>Linchimae D. Cabildo <span class="text-sm text-gold">- Light</span></p></div></div></section>
+
+    <div class="mx-auto mt-8 grid max-w-5xl gap-8 text-left md:grid-cols-2">
+      <section class="rounded-lg border border-line bg-bg/80 p-6 shadow-sm"><h2 class="text-center text-3xl font-light text-gold">Bearers</h2><dl class="mt-5 space-y-3 text-soft"><div><dt class="text-sm uppercase tracking-[.15em] text-gold">Arras Bearer</dt><dd>Xavier Grey E. Dales</dd></div><div><dt class="text-sm uppercase tracking-[.15em] text-gold">Ring Bearer</dt><dd>Xcyl Grey E. Dales</dd></div><div><dt class="text-sm uppercase tracking-[.15em] text-gold">Bible Bearer</dt><dd>Aison Q. Briones</dd></div></dl></section>
+      <section class="rounded-lg border border-line bg-bg/80 p-6 shadow-sm"><h2 class="text-center text-3xl font-light text-gold">Flower Girls</h2><ol class="mt-5 list-decimal space-y-2 pl-6 text-soft"><li>Hezekiah L. Memis</li><li>Alessia Caitlyn Babor</li><li>Keonna L. Memis</li></ol></section>
+    </div>
+
+  </main>
+  <script src="hamburger.js"></script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Emil & Rhea · 12.12.26</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Pinyon+Script&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script>
+tailwind.config={theme:{extend:{
+  colors:{bg:'var(--bg)',ink:'var(--ink)',soft:'var(--soft)',sage:'#b5bf9d',sage2:'var(--sage2)',gold:'var(--gold)',line:'var(--line)'},
+  fontFamily:{serif:['"Cormorant Garamond"','Georgia','"Times New Roman"','serif'],script:['"Pinyon Script"','"Snell Roundhand"','cursive']}
+}}}
+</script>
+<style>
+:root{--bg:#e8efe0;--ink:#3f5139;--soft:#687862;--sage2:#d4e0ce;--gold:#9b7838;--line:rgba(63,81,57,.24);
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{font-size:94%;scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{background:var(--bg);-webkit-font-smoothing:antialiased}
+header{font-size:.94em}footer{font-size:.94em}
+body::before{content:"";position:fixed;inset:0;z-index:2;pointer-events:none;background-image:url('flowers.png?v=1');background-position:center;background-size:cover;background-repeat:no-repeat;opacity:1}
+#main{position:relative;z-index:1}
+@media (orientation:landscape) and (max-width:767px){.countdown-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.gallery-row{display:flex;width:max-content;gap:.75rem;animation:gallery-scroll 28s linear infinite}.gallery-row.reverse{animation-direction:reverse;animation-duration:34s}.gallery-row.slow{animation-duration:40s}.gallery-window:hover .gallery-row,.gallery-window:focus-within .gallery-row{animation-play-state:paused}.gallery-tile{width:clamp(8rem,28vw,16rem);flex:none}.gallery-tile.wide{width:clamp(12rem,42vw,24rem)}@keyframes gallery-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}@media(prefers-reduced-motion:reduce){.gallery-row{animation:none}}
+#top{position:relative;overflow:hidden}#top::before{content:"";position:absolute;inset:12% 8%;border:1px solid var(--gold);border-radius:48% 52% 45% 55%;opacity:.16;transform:rotate(-7deg);animation:frame-drift 10s ease-in-out infinite alternate}#top>*{position:relative;z-index:1}#top p:first-child{animation:soft-rise .8s ease-out both}.hero-copy{animation:soft-rise .9s .12s ease-out both}.hero-date{animation:soft-rise .9s .24s ease-out both}.content-section{position:relative;overflow:hidden}.content-section::before{content:"";display:block;width:3.5rem;height:1px;margin:0 auto 1.25rem;background:var(--gold);opacity:.7}.content-section[data-loaded="true"]{animation:section-reveal .85s ease-out both}@keyframes soft-rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}@keyframes section-reveal{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}@keyframes frame-drift{from{transform:rotate(-7deg) scale(.98)}to{transform:rotate(-3deg) scale(1.02)}}
+ .type-date{display:inline-block;max-width:100%;white-space:nowrap;border-right:2px solid var(--gold);clip-path:inset(0 100% 0 0);animation:date-typing 5s steps(14,end) infinite,date-caret .75s step-end infinite}
+section[data-content-page] h1,section[data-content-page] h2,section[data-content-page] h3,section[data-content-page] p,section[data-content-page] a,section[data-content-page] form{animation:text-rise .8s ease-out both}section[data-content-page] h1{animation-delay:.08s}section[data-content-page] h2{animation-delay:.16s}section[data-content-page] h3{animation-delay:.24s}section[data-content-page] p{animation-delay:.3s}section[data-content-page] a,section[data-content-page] form{animation-delay:.4s}.countdown-grid strong{animation:text-rise .8s .45s ease-out both}@keyframes text-rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes date-typing{0%,12%{clip-path:inset(0 100% 0 0)}55%,82%{clip-path:inset(0 0 0 0)}100%{clip-path:inset(0 100% 0 0)}}@keyframes date-caret{0%,49%{border-color:var(--gold)}50%,100%{border-color:transparent}}
+:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+@media(prefers-reduced-motion:reduce){#top::before,#top p:first-child,.hero-copy,.hero-date,.type-date,.content-section[data-loaded="true"],section[data-content-page] h1,section[data-content-page] h2,section[data-content-page] h3,section[data-content-page] p,section[data-content-page] a,section[data-content-page] form,.countdown-grid strong{animation:none}#top p:first-child,.hero-copy,.hero-date,.type-date,.content-section[data-loaded="true"],section[data-content-page] h1,section[data-content-page] h2,section[data-content-page] h3,section[data-content-page] p,section[data-content-page] a,section[data-content-page] form,.countdown-grid strong{opacity:1;transform:none}.type-date{clip-path:none;border-right:0}}
+</style></head>
+<body class="overflow-hidden h-full bg-bg text-ink font-serif text-xl leading-relaxed">
+
+<!-- 1 · Envelope -->
+<button id="envelope" aria-label="Open the invitation"
+  class="fixed inset-0 z-30 w-full overflow-hidden bg-sage cursor-pointer border-0 transition-[opacity,visibility] duration-1000 delay-500 motion-reduce:transition-none">
+  <img id="envImg" src="weddingenvelope.jpg" alt="Sage green envelope sealed with an E and R monogram"
+    class="w-full h-full object-cover origin-[50%_51%] transition-transform duration-[1600ms] ease-in-out motion-reduce:transition-none">
+  <span id="hint" class="absolute inset-x-0 bottom-[8%] text-center italic text-lg tracking-wide text-[#3f5a3a] animate-pulse transition-opacity duration-300">Tap the seal to open</span>
+</button>
+
+<!-- 2 · Loading -->
+<div id="loader" aria-live="polite"
+  class="fixed inset-0 z-20 flex flex-col items-center justify-center text-center p-8 bg-sage text-[#2f4229] opacity-0 invisible transition-[opacity,visibility] duration-1000 motion-reduce:transition-none">
+  <div class="text-[clamp(1.6rem,5vw,2.6rem)] font-light tracking-wider leading-tight">
+    Emil Patrimonio<span class="font-script text-[1.4em] mx-2 text-[#5a4420]">&amp;</span>Rhea Paglalunan
+  </div>
+  <div class="mt-6 italic text-lg">Wedding Invitation</div>
+  <div class="mt-1 tracking-[.35em] text-base">12.12.26</div>
+  <div class="mt-10 w-[min(220px,60vw)] h-px bg-[#2f4229]/25 overflow-hidden">
+    <i id="bar" class="block h-full w-full bg-[#2f4229] origin-left scale-x-0 transition-transform duration-[3200ms] ease-in-out"></i>
+  </div>
+</div>
+
+<audio id="bgMusic" preload="auto" loop aria-label="Wedding background music">
+  <source src="palagi.m4a" type="audio/mp4">
+</audio>
+
+<!-- 3 · Main -->
+<main id="main" class="opacity-0 transition-opacity duration-[1400ms] motion-reduce:transition-none">
+
+  <header class="fixed top-0 inset-x-0 z-10 flex items-center justify-between px-6 py-5 bg-bg/90 backdrop-blur-sm">
+    <a href="#top" class="font-script text-gold text-3xl" aria-label="Back to the invitation">E &amp; R</a>
+    <button id="menuToggle" type="button" aria-expanded="false" aria-controls="siteMenu" class="flex items-center gap-2 text-sm uppercase tracking-[.2em] text-ink">
+      <span class="sr-only">Open menu</span>
+      <span class="flex w-7 flex-col gap-1.5" aria-hidden="true"><i class="block h-px w-full bg-ink"></i><i class="block h-px w-full bg-ink"></i><i class="block h-px w-full bg-ink"></i></span>
+      <span>Menu</span>
+    </button>
+    <nav id="siteMenu" aria-label="Wedding invitation navigation" class="absolute right-6 top-20 hidden w-56 border border-line bg-bg p-5 shadow-lg">
+      <a class="menu-link block border-b border-line py-2 text-lg" href="#story">Our love story</a>
+      <a class="menu-link block border-b border-line py-2 text-lg" href="#gallery">Gallery</a>
+      <a class="menu-link block border-b border-line py-2 text-lg" href="#schedule">Schedule</a>
+      <a class="menu-link block border-b border-line py-2 text-lg" href="#attire-guide">Attire Guide</a>
+      <a class="menu-link block border-b border-line py-2 text-lg" href="#entourage">Entourage</a>
+      <a class="menu-link block border-b border-line py-2 text-lg" href="#reminders">Reminders</a>
+      <a class="menu-link block py-2 text-lg" href="#rsvp">RSVP</a>
+    </nav>
+  </header>
+
+  <section id="top" class="min-h-screen min-h-[100svh] flex flex-col items-center justify-center text-center px-6 py-24 bg-bg">
+    <p class="italic text-soft text-lg">Together with their families</p>
+    <h1 class="font-light text-[clamp(2.6rem,9vw,5.2rem)] leading-[1.08] tracking-wide mt-6 mb-2">
+      <span class="hero-copy">Emil Patrimonio
+      <span class="block font-script text-gold text-[.8em] leading-tight">&amp;</span>
+      Rhea Paglalunan</span>
+    </h1>
+    <p class="italic text-soft text-lg">invite you to celebrate their wedding</p>
+    <p class="hero-date type-date tracking-[.4em] text-xl mt-5">12 · 12 · 2026</p>
+    <div class="w-px h-16 bg-gold mt-10" aria-hidden="true"></div>
+  </section>
+
+  <section id="story" data-content-page="until-we-say-i-do.html" data-content-selector="#our-love-story" class="content-section min-h-[24rem] px-6 py-24 bg-sage2/40" aria-live="polite"><p class="text-center italic text-soft">Loading our love story...</p></section>
+  <section id="gallery" data-content-page="gallery.html" class="content-section min-h-[24rem] px-6 py-24" aria-live="polite"><p class="text-center italic text-soft">Loading the gallery...</p></section>
+  <section id="schedule" data-content-page="schedule.html" class="content-section min-h-[24rem] px-6 py-24 bg-sage2/40" aria-live="polite"><p class="text-center italic text-soft">Loading the schedule...</p></section>
+  <section id="attire-guide" data-content-page="attireguide.html" class="content-section min-h-[24rem] px-6 py-24" aria-live="polite"><p class="text-center italic text-soft">Loading the attire guide...</p></section>
+  <section id="entourage" data-content-page="entourage.html" class="content-section min-h-[24rem] px-6 py-24" aria-live="polite"><p class="text-center italic text-soft">Loading the entourage...</p></section>
+  <section id="reminders" data-content-page="reminders.html" class="content-section min-h-[24rem] px-6 py-24 bg-sage2/40" aria-live="polite"><p class="text-center italic text-soft">Loading reminders...</p></section>
+  <section id="rsvp" data-content-page="rsvp.html" class="content-section min-h-[24rem] px-6 py-24" aria-live="polite"><p class="text-center italic text-soft">Loading RSVP...</p></section>
+  <section id="until-we-say-i-do" data-content-page="until-we-say-i-do.html" data-content-selector="#until-we-say-i-do-content" class="mx-auto min-h-[36rem] w-full max-w-[721px] bg-cover bg-center bg-no-repeat px-6 py-32" style="aspect-ratio:721/1158;background-color:#30231F;background-image:url('ring.jpg?v=4');background-size:cover;background-position:center" aria-live="polite"><p class="text-center italic text-soft">Loading our forever...</p></section>
+
+
+  <footer class="text-center text-soft px-6 pt-12 pb-16">
+    <div class="font-script text-gold text-5xl">E &amp; R</div>
+    <p>12.12.26</p>
+    <p class="mt-4 text-xs tracking-wide">Thank you for visiting our website.<br>Designed with love and care.<br>Made with ❤️<br>No copyright infringement intended.</p>
+  </footer>
+</main>
+
+<script>
+const $=id=>document.getElementById(id);
+const env=$('envelope'),ld=$('loader'),main=$('main'),music=$('bgMusic');let opened=false;
+async function playMusic(){try{await music.play()}catch(error){console.warn('Music autoplay was blocked by the browser.',error)}}
+env.addEventListener('click',()=>{
+  if(opened)return;opened=true;
+  $('envImg').classList.add('scale-[5]');$('hint').classList.add('opacity-0');
+  env.classList.add('opacity-0','invisible');
+  setTimeout(()=>{ld.classList.remove('opacity-0','invisible');$('bar').classList.replace('scale-x-0','scale-x-100')},900);
+  setTimeout(()=>{ld.classList.add('opacity-0','invisible');document.body.classList.remove('overflow-hidden');window.scrollTo(0,0);main.classList.replace('opacity-0','opacity-100');playMusic()},4400);
+  setTimeout(()=>{env.remove();ld.remove()},5700);
+});
+</script>
+<script src="hamburger.js"></script>
+<script src="page-loader.js"></script>
+</body></html>

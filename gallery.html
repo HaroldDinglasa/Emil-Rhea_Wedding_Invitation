@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gallery · Emil &amp; Rhea</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script>tailwind.config={theme:{extend:{colors:{bg:'var(--bg)',ink:'var(--ink)',soft:'var(--soft)',sage2:'var(--sage2)',gold:'var(--gold)',line:'var(--line)'},fontFamily:{serif:['Georgia','serif'],script:['cursive']}}}}</script>
+  <style>:root{--bg:#e8efe0;--ink:#3f5139;--soft:#687862;--sage2:#d4e0ce;--gold:#9b7838;--line:rgba(63,81,57,.24)}body{background:var(--bg)}.gallery-row{display:flex;width:max-content;gap:.75rem;animation:gallery-scroll 28s linear infinite}.gallery-row.reverse{animation-direction:reverse;animation-duration:34s}.gallery-row.slow{animation-duration:40s}.gallery-window:hover .gallery-row,.gallery-window:focus-within .gallery-row{animation-play-state:paused}.gallery-tile{width:clamp(8rem,28vw,16rem);flex:none}.gallery-tile.wide{width:clamp(12rem,42vw,24rem)}@keyframes gallery-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}@media(prefers-reduced-motion:reduce){.gallery-row{animation:none}}</style>
+</head>
+<body class="min-h-screen bg-bg text-ink font-serif text-xl leading-relaxed">
+  <header class="fixed top-0 inset-x-0 z-10 flex items-center justify-between px-6 py-5 bg-bg/90">
+    <a href="index.html" class="text-gold text-3xl">E &amp; R</a>
+    <button id="menuToggle" type="button" aria-expanded="false" aria-controls="siteMenu" class="text-sm uppercase tracking-[.2em]">Menu</button>
+    <nav id="siteMenu" class="absolute right-6 top-20 hidden w-56 border border-line bg-bg p-5 shadow-lg">
+      <a class="menu-link block py-2" href="story.html">Our love story</a><a class="menu-link block py-2" href="gallery.html">Gallery</a><a class="menu-link block py-2" href="schedule.html">Schedule</a><a class="menu-link block py-2" href="entourage.html">Entourage</a><a class="menu-link block py-2" href="reminders.html">Reminders</a><a class="menu-link block py-2" href="rsvp.html">RSVP</a>
+    </nav>
+  </header>
+  <main class="px-0 py-32 text-center">
+    <p class="px-6 uppercase tracking-[.3em] text-sm text-gold">Gallery</p>
+    <h1 class="mt-4 px-6 text-5xl font-light">A little look at us</h1>
+    <div class="gallery-window mt-10 w-full overflow-hidden space-y-3" tabindex="0" aria-label="Three-row moving wedding photo gallery">
+      <div class="gallery-row px-3">
+        <img class="gallery-tile h-36 rounded-lg object-cover sm:h-52" src="church.jpg" alt="Wedding ceremony church"><img class="gallery-tile wide h-36 rounded-lg object-cover sm:h-52" src="reception.jpg" alt="Wedding reception venue"><img class="gallery-tile h-36 rounded-lg object-cover sm:h-52" src="ring.jpg" alt="Wedding rings"><img class="gallery-tile h-36 rounded-lg object-cover sm:h-52" src="church.jpg" alt=""><img class="gallery-tile h-36 rounded-lg object-cover sm:h-52" src="church.jpg" alt=""><img class="gallery-tile wide h-36 rounded-lg object-cover sm:h-52" src="reception.jpg" alt=""><img class="gallery-tile h-36 rounded-lg object-cover sm:h-52" src="ring.jpg" alt=""><img class="gallery-tile h-36 rounded-lg object-cover sm:h-52" src="church.jpg" alt="">
+      </div>
+      <div class="gallery-row reverse px-3">
+        <img class="gallery-tile wide h-36 rounded-lg object-cover sm:h-52" src="ring.jpg" alt="Wedding rings"><img class="gallery-tile h-36 rounded-lg object-cover sm:h-52" src="weddingenvelope.jpg" alt="Wedding invitation envelope"><img class="gallery-tile wide h-36 rounded-lg object-cover sm:h-52" src="church.jpg" alt="Wedding ceremony church"><img class="gallery-tile h-36 rounded-lg object-cover sm:h-52" src="ring.jpg" alt=""><img class="gallery-tile wide h-36 rounded-lg object-cover sm:h-52" src="ring.jpg" alt=""><img class="gallery-tile h-36 rounded-lg object-cover sm:h-52" src="weddingenvelope.jpg" alt=""><img class="gallery-tile wide h-36 rounded-lg object-cover sm:h-52" src="church.jpg" alt=""><img class="gallery-tile h-36 rounded-lg object-cover sm:h-52" src="ring.jpg" alt="">
+      </div>
+      <div class="gallery-row slow px-3">
+        <img class="gallery-tile h-36 rounded-lg object-cover sm:h-52" src="reception.jpg" alt="Wedding reception venue"><img class="gallery-tile wide h-36 rounded-lg object-cover sm:h-52" src="ring.jpg" alt="Wedding rings"><img class="gallery-tile h-36 rounded-lg object-cover sm:h-52" src="weddingenvelope.jpg" alt="Wedding invitation envelope"><img class="gallery-tile h-36 rounded-lg object-cover sm:h-52" src="reception.jpg" alt=""><img class="gallery-tile h-36 rounded-lg object-cover sm:h-52" src="reception.jpg" alt=""><img class="gallery-tile wide h-36 rounded-lg object-cover sm:h-52" src="ring.jpg" alt=""><img class="gallery-tile h-36 rounded-lg object-cover sm:h-52" src="weddingenvelope.jpg" alt=""><img class="gallery-tile h-36 rounded-lg object-cover sm:h-52" src="reception.jpg" alt="">
+      </div>
+    </div>
+  </main>
+  <script src="hamburger.js"></script>
+</body>
+</html>

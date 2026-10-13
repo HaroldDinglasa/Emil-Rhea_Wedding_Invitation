@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Schedule · Emil &amp; Rhea</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script>tailwind.config={theme:{extend:{colors:{bg:'var(--bg)',ink:'var(--ink)',soft:'var(--soft)',sage2:'var(--sage2)',gold:'var(--gold)',line:'var(--line)'},fontFamily:{serif:['Georgia','serif']}}}}</script>
+  <style>:root{--bg:#f6f4ec;--ink:#34462f;--soft:#6b7a63;--sage2:#dfe4d0;--gold:#a67c3b;--line:rgba(52,70,47,.22)}body{background:var(--bg)}</style>
+</head>
+<body class="min-h-screen bg-bg text-ink font-serif text-xl leading-relaxed">
+  <header class="fixed top-0 inset-x-0 z-10 flex items-center justify-between px-6 py-5 bg-bg/90">
+    <a href="index.html" class="text-gold text-3xl">E &amp; R</a>
+    <button id="menuToggle" type="button" aria-expanded="false" aria-controls="siteMenu" class="text-sm uppercase tracking-[.2em]">Menu</button>
+    <nav id="siteMenu" class="absolute right-6 top-20 hidden w-56 border border-line bg-bg p-5 shadow-lg">
+      <a class="menu-link block py-2" href="story.html">Our love story</a>
+      <a class="menu-link block py-2" href="gallery.html">Gallery</a>
+      <a class="menu-link block py-2" href="schedule.html">Schedule</a>
+      <a class="menu-link block py-2" href="entourage.html">Entourage</a>
+      <a class="menu-link block py-2" href="reminders.html">Reminders</a>
+      <a class="menu-link block py-2" href="rsvp.html">RSVP</a>
+    </nav>
+  </header>
+  <main class="px-6 py-32">
+    <div class="mx-auto max-w-3xl text-center">
+      <p class="uppercase tracking-[.3em] text-sm text-gold">Wedding timeline</p>
+      <h1 class="mt-4 text-5xl font-light">Schedule</h1>
+      <p class="mt-3 text-soft">12.12.2026</p>
+    </div>
+    <div class="mx-auto mt-12 max-w-2xl border-y border-line">
+      <div class="grid grid-cols-[7rem_1fr] gap-5 border-b border-line py-6">
+        <strong class="font-normal text-gold">2:30–3:30 PM</strong>
+        <div>
+          <h2 class="text-2xl">Wedding ceremony</h2>
+          <img src="church.jpg" alt="Interior of the church where the wedding ceremony will be held" class="mt-4 w-full max-w-md rounded-md object-cover shadow-sm" loading="lazy">
+          <p class="text-soft">San Isidro Labrador Parish, Talay, Dumaguete City</p>
+          <a class="mt-2 inline-block text-sm text-gold underline" href="https://www.google.com/maps/search/?api=1&amp;query=San+Isidro+Labrador+Parish+Talay+Dumaguete+City" target="_blank" rel="noopener noreferrer">Open in Google Maps</a>
+        </div>
+      </div>
+      <div class="grid grid-cols-[7rem_1fr] gap-5 py-6">
+        <strong class="font-normal text-gold">5:00–9:00 PM</strong>
+        <div>
+          <h2 class="text-2xl">Reception</h2>
+          <img src="reception.jpg" alt="Reception venue at Tierra Alta, Valencia, Negros Oriental" class="mt-4 w-full max-w-md rounded-md object-cover shadow-sm" loading="lazy">
+          <p class="text-soft">Tierra Alta, Valencia, Negros Oriental</p>
+          <a class="mt-2 inline-block text-sm text-gold underline" href="https://www.google.com/maps/search/?api=1&amp;query=Tierra+Alta+Valencia+Negros+Oriental" target="_blank" rel="noopener noreferrer">Open in Google Maps</a>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="hamburger.js"></script>
+</body>
+</html>
