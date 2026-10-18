@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="shade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1f2b1d" stop-opacity="0.05"/>
+      <stop offset="1" stop-color="#1f2b1d" stop-opacity="0.72"/>
+    </linearGradient>
+  </defs>
+  <image xlink:href="weddingenvelope.jpg" x="0" y="0" width="1200" height="630" preserveAspectRatio="xMidYMid slice"/>
+  <rect x="0" y="0" width="1200" height="630" fill="url(#shade)"/>
+  <rect x="48" y="48" width="1104" height="534" rx="24" fill="none" stroke="#f2edd9" stroke-opacity="0.75" stroke-width="2"/>
+  <text x="600" y="475" text-anchor="middle" fill="#fffdf1" font-family="Georgia, serif" font-size="52" letter-spacing="2">Emil &amp; Rhea</text>
+  <text x="600" y="530" text-anchor="middle" fill="#fffdf1" font-family="Georgia, serif" font-size="28" letter-spacing="5">WEDDING INVITATION</text>
+  <text x="600" y="565" text-anchor="middle" fill="#f2dca5" font-family="Georgia, serif" font-size="22" letter-spacing="4">12.12.26</text>
+</svg>
